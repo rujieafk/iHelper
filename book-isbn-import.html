@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page title and shared CSS file for styling -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import ISBN Transmission | iHelper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main container for import page content -->
+  <div class="container">
+    <h1>Import ISBN Transmission</h1>
+    <p>Upload or paste ISBN data here to import it into the iHelper system.</p>
+
+    <!-- Form for adding multiple ISBN entries at once -->
+    <!-- Accepts multiple ISBN values separated by commas or new lines -->
+    <form>
+      <label for="isbn-import" style="display:block; margin-bottom:0.75rem; text-align:left;">ISBN Data</label>
+      <textarea id="isbn-import" rows="6" placeholder="Enter ISBNs separated by commas or new lines" style="width:100%; max-width:640px; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;"></textarea>
+
+      <label for="transmitted-date" style="display:block; margin-bottom:0.75rem; text-align:left;">Transmitted Date</label>
+      <input id="transmitted-date" type="text" placeholder="MM-DD-YYYY" style="width:100%; max-width:360px; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+      <small style="display:block; margin-bottom:1rem; color:#555; text-align:left;">Enter date in MM-DD-YYYY format, or leave blank to use today.</small>
+
+      <button id="importBtn" type="button">Import ISBNs</button>
+    </form>
+
+    <!-- Navigation button back to home page -->
+    <button onclick="window.location.href='Index.html'" style="margin-top:1rem; background:#6b7280;">Back to Home</button>
+  </div>
+  <script src="insertTransmittedISBN.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page settings and style file link -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Processing List | iHelper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Container for the QA processing page -->
+  <div class="container">
+    <h1>QA Processing List</h1>
+    <p>Track and manage your QA tasks in one place. Add items to your list and mark them as complete.</p>
+
+    <!-- Simple form to add a new QA task -->
+    <form onsubmit="event.preventDefault(); alert('QA processing flow is not implemented yet.');">
+      <label for="qa-item" style="display:block; margin-bottom:0.75rem; text-align:left;">New QA Item</label>
+      <input id="qa-item" type="text" placeholder="Enter QA task" style="width:100%; max-width:360px; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;">
+      <button type="submit">Add to QA List</button>
+    </form>
+
+    <!-- Back button to go to the homepage -->
+    <button onclick="window.location.href='Index.html'" style="margin-top:1rem; background:#6b7280;">Back to Home</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page title and CSS link for ISBN verification -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book ISBN Verification | iHelper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main wrapper for the verification page -->
+  <div class="container">
+    <h1>Book ISBN Verification</h1>
+    <p>Enter one or more ISBNs, then click Search to see which ones are already in the database.</p>
+
+    <!-- Form to enter multiple ISBN values -->
+    <form onsubmit="event.preventDefault();">
+      <label for="isbn-input" style="display:block; margin-bottom:0.75rem; text-align:left;">ISBN Input</label>
+      <textarea id="isbn-input" rows="6" placeholder="Enter ISBNs separated by commas or new lines" style="width:100%; max-width:640px; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;"></textarea>
+      <button id="searchBtn" type="button">Search ISBNs</button>
+    </form>
+
+    <!-- Search results will show here -->
+    <div id="search-results" style="margin-top:1.5rem; text-align:center;"></div>
+
+    <!-- Home button returns to the main page -->
+    <button onclick="window.location.href='Index.html'" style="margin-top:1.5rem; background:#6b7280;">Back to Home</button>
+  </div>
+  <script src="searchTransmittedISBN.js"></script>
+</body>
+</html>

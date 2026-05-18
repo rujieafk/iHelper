@@ -1,0 +1,126 @@
+/* Make all elements use border-box sizing so padding is included in width calculations */
+* {
+  box-sizing: border-box;
+}
+
+/* Base body style for the whole site */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f8f8f8;
+  color: #222;
+}
+
+/* Headings use a clean sans-serif font and small bottom space */
+h1, h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 0.75rem;
+}
+
+/* Main white page card container */
+.container {
+  width: min(95%, 960px);
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  background: #fff;
+}
+
+/* Paragraph style inside containers */
+.container p {
+  margin: 0;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+}
+
+/* Row layout for feature cards on the home page */
+.box-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: min(95%, 960px);
+  margin: 0 auto 1.5rem;
+}
+
+/* Each card box styling */
+.box1, .box2 {
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 420px;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  background: #fff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Make card inner content stretch full width */
+.box1 div, .box2 div {
+  width: 100%;
+}
+
+/* Layout for two buttons in one row */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+/* Button size inside button rows */
+.button-row button {
+  flex: 1 1 calc(50% - 0.75rem);
+  max-width: 220px;
+  width: auto;
+}
+
+/* General button styling for the site */
+button {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  max-width: 240px;
+}
+
+/* Hover state for buttons */
+button:hover {
+  background: #2563eb;
+}
+
+/* Responsive mobile styles for smaller screens */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .box-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .box1, .box2 {
+    min-width: auto;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
