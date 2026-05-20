@@ -8,20 +8,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Container for the list page -->
   <div class="container">
     <h1>View All Transmitted ISBN</h1>
-    <p>See the list of ISBNs that have been transmitted through iHelper.</p>
+    <p>Choose a transmission date to see all ISBNs for that day, or select "All dates" to view every transmitted record.</p>
 
-    <!-- Placeholder list area for transmitted ISBN records -->
-    <div style="text-align:left; max-width:700px; margin:0 auto;">
-      <ul style="padding-left:1.2rem; margin-top:1rem; color:#333;">
-        <li>No ISBN records are available yet. Add transmissions using the import page.</li>
-      </ul>
+    <div style="text-align:left; max-width:760px; margin:1rem auto;">
+      <label for="date-input" style="display:block; margin-bottom:0.5rem; font-weight:600;">Enter transmitted date</label>
+      <input id="date-input" type="text" placeholder="MM-DD-YYYY" style="width:100%; max-width:320px; padding:0.75rem; border:1px solid #ccc; border-radius:8px; margin-bottom:0.75rem;" />
+      <div style="display:flex; flex-wrap:wrap; gap:0.75rem; align-items:center;">
+        <button id="date-search-btn" style="padding:0.75rem 1rem; border:none; background:#2563eb; color:#fff; border-radius:8px; cursor:pointer;">Show ISBNs</button>
+        <button id="show-all-btn" style="padding:0.75rem 1rem; border:none; background:#6b7280; color:#fff; border-radius:8px; cursor:pointer;">Show all dates</button>
+      </div>
+      <p style="margin-top:0.75rem; color:#555; font-size:0.95rem;">Enter date in MM-DD-YYYY format, or click Show all dates.</p>
     </div>
 
-    <!-- Return to the home page -->
+    <div id="isbn-table-container" style="max-width:760px; margin:1rem auto; text-align:left; max-height:50vh; overflow-y:auto; border:1px solid #ddd; padding:0.5rem; border-radius:8px; background:#fff;"></div>
+
     <button onclick="window.location.href='Index.html'" style="margin-top:1rem; background:#6b7280;">Back to Home</button>
   </div>
+  <script src="book-isbn-view.js"></script>
 </body>
 </html>

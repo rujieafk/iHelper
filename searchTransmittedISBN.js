@@ -1,6 +1,3 @@
-// Log a message when the script starts running.
-console.log("searchTransmittedISBN is running...");
-
 // Replace these values with your actual Supabase project details.
 const supabaseUrl = "https://nqugmxzvtqunngdcvpml.supabase.co";
 const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5xdWdteHp2dHF1bm5nZGN2cG1sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMjI0NjksImV4cCI6MjA5NDY5ODQ2OX0.-OVawnXolHygi0ewfdXEdqE5eyZg4LDxtFqzDBUwGK8";
@@ -21,7 +18,6 @@ async function initSupabase() {
   supabase = createClient(supabaseUrl, supabaseAnonKey, {
     fetch: fetchWrapper,
   });
-  console.log("Supabase client initialized.");
 }
 
 // Convert user input into a list of ISBN strings.
@@ -36,7 +32,6 @@ function parseIsbnList(inputValue) {
 function showSearchResults(isbnList, foundRows) {
   const results = document.getElementById("search-results");
   if (!results) {
-    console.warn("Search results container not found.");
     return;
   }
 
@@ -119,7 +114,6 @@ async function findIsbnsInDatabase(isbnList) {
       .in("ISBN", isbnList);
 
     if (error) {
-      console.error("Supabase query error:", error);
       if (error.message && error.message.toLowerCase().includes("failed to fetch")) {
         throw new Error(
           "Network request to Supabase failed. Check your internet connection, the Supabase project origin settings, and whether the browser can reach the URL."
@@ -131,7 +125,6 @@ async function findIsbnsInDatabase(isbnList) {
     return data || [];
   } catch (error) {
     if (error.message && error.message.toLowerCase().includes("failed to fetch")) {
-      console.warn("Supabase client failed, attempting direct REST fetch.");
       return await fetchIsbnsDirect(isbnList);
     }
     throw error;
@@ -144,7 +137,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
   const searchBtn = document.getElementById("searchBtn");
   if (!searchBtn) {
-    console.warn("Search button not found on this page.");
     return;
   }
 
@@ -164,11 +156,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     try {
       const foundIsbns = await findIsbnsInDatabase(isbnList);
       showSearchResults(isbnList, foundIsbns);
-      alert("Search successful.");
       if (isbnInput) isbnInput.value = "";
     } catch (error) {
       resultsContainer.innerHTML = "<p>An error occurred while searching.</p>";
-      alert("Search failed. Please try again later.");
       if (isbnInput) isbnInput.value = "";
     }
   });

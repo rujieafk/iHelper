@@ -1,126 +1,217 @@
-/* Make all elements use border-box sizing so padding is included in width calculations */
-* {
-  box-sizing: border-box;
-}
-
-/* Base body style for the whole site */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f8f8f8;
-  color: #222;
-}
-
-/* Headings use a clean sans-serif font and small bottom space */
-h1, h2 {
+body{
+  background-color: #37353E;
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 0 0.75rem;
+  color: #D3DAD9;
+  gap: 10px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header header"
+                       "aside main";
+}
+.aside-header, .main-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Main white page card container */
-.container {
-  width: min(95%, 960px);
-  margin: 1.5rem auto;
-  padding: 1.5rem;
-  border: 3px solid #ccc;
-  border-radius: 10px;
-  text-align: center;
-  background: #fff;
-}
-
-/* Paragraph style inside containers */
-.container p {
+.aside-header h2, .main-header h2{
   margin: 0;
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
 }
 
-/* Row layout for feature cards on the home page */
-.box-row {
+.ITA-btn, .QPL-btn{
+  padding: 5px 10px;
+  width: auto;
+  background-color: #715A5A;
+  color: #D3DAD9;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+header{
+  font-size: small;
+  grid-area: header;
+  padding: 10px 20px;
+  border: 1px solid #715A5A;
+  background-color: #44444E;
+  border-radius: 20px;
+}
+
+/*--ISBN Transmission Audit--*/
+aside{
+  grid-area: aside;
+  font-size: small;
+  padding: 10px;
+  border: 1px solid #715A5A;
+  background-color: #44444E;
+  border-radius: 20px;
+}
+
+.project-code {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.project-list  {
+  background-color: #715A5A;
+  color: #D3DAD9;
+  border-radius: 50px;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+#searchBtn, #importBtn, #backBtn {
+  background-color: #715A5A;
+  color: #D3DAD9;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 1px solid #D3DAD9;
+  color: #D3DAD9;
+  border-radius: 7px;
+  background: #715A5A;
+}
+.info-box {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  background: #715A5A;
+  font-size: 14px;
+  height: 70vh;
+}
+.button-row button {
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  border: 1px solid #D3DAD9;
+  color: #D3DAD9;
+  border-radius: 7px;
+  background: #715A5A;
+}
+#search-results {
+  margin: 10px;
+  max-height: 400px; /* set the maximum height for the div */
+  overflow: auto; /* add scrollbars if content overflows */
+  scrollbar-width: none; /* hide scrollbar on Firefox */
+  -ms-overflow-style: none; /* hide scrollbar on IE and Edge */
+}
+
+#search-results::-webkit-scrollbar {
+  width: 0; /* hide scrollbar on Chrome and Safari */
+  background: transparent; /* hide scrollbar track */
+}
+#search-results::-webkit-scrollbar-button {
+  display: none; /* hide scroll button */
+}
+/*--ISBN Transmission Audit--*/
+
+
+main{
+  grid-area: main;  
+  font-size: small;
+  padding: 10px;
+  border: 1px solid #715A5A;
+  background-color: #44444E;
+  border-radius: 20px;
+}
+
+.qa-box-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qa-box-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #715A5A;
+  border-radius: 10px;
+}
+
+.qa-box-line {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  width: min(95%, 960px);
-  margin: 0 auto 1.5rem;
+  gap: 10px;
 }
 
-/* Each card box styling */
-.box1, .box2 {
-  flex: 1 1 220px;
-  min-width: 220px;
-  max-width: 420px;
-  border: 3px solid #ccc;
-  border-radius: 10px;
-  background: #fff;
-  padding: 1rem;
+.qa-box {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-}
-
-/* Make card inner content stretch full width */
-.box1 div, .box2 div {
-  width: 100%;
-}
-
-/* Layout for two buttons in one row */
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-}
-
-/* Button size inside button rows */
-.button-row button {
-  flex: 1 1 calc(50% - 0.75rem);
-  max-width: 220px;
-  width: auto;
-}
-
-/* General button styling for the site */
-button {
-  margin-top: 0.75rem;
-  padding: 0.75rem 1rem;
-  border: none;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #D3DAD9;
   border-radius: 8px;
-  background: #3b82f6;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
+  background: #715A5A;
+}
+
+.container{
+  border-radius: 10px;
+  padding: 50px;
+  border: 1px solid #D3DAD9;
+  background: #715A5A;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center; /* centers the items horizontally */
+  justify-content: center; /* centers the items vertically */
+  height: 100%;
+}
+
+body.import-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  grid-template-columns: none;
+  grid-template-rows: none;
+  grid-template-areas: none;
+  margin: 0;
+}
+
+body.import-page .container{
   width: 100%;
-  max-width: 240px;
+  max-width: 700px;
+  height: auto;
+  box-sizing: border-box;
 }
 
-/* Hover state for buttons */
-button:hover {
-  background: #2563eb;
-}
-
-/* Responsive mobile styles for smaller screens */
-@media (max-width: 640px) {
-  .container {
-    padding: 1rem;
+@media(max-width: 600px){
+  body{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas: "header"
+                         "aside"
+                         "main";
   }
-
-  .box-row {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+  .info-box {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #D3DAD9;
+    border-radius: 7px;
+    background: #715A5A;
+    font-size: 14px;
+    height: 40vh;
+  }
+  .button-row {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-  }
-
-  .box1, .box2 {
-    min-width: auto;
+    gap: 5px;
     width: 100%;
+    margin: 0 auto;
   }
 
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
+  .button-row button {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

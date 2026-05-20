@@ -8,34 +8,135 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>iHelper</h1>
-            <!--<p>Welcome to iHelper, your personal assistant for all your needs. Whether you need help with scheduling, reminders, or information retrieval, iHelper is here to assist you.</p>-->            
-            <p>Explore the features below to get started:</p>       
+  <script src="searchTransmittedISBN.js"></script>
+  <header>
+    <h2>iHelper</h2>
+  </header>
+  <aside>
+    <div class="aside-header">
+      <h2>ISBN Transmission Audit</h2>
+      <!--<button class="ITA-btn" onclick="window.location.href='book-isbn.html'">Search ISBN</button>-->
     </div>
-    <div class="box-row">
-      <div class="box1">
-        <div>
-            <h2>ISBN Transmission Audit</h2>
-            <button onclick="window.location.href='book-isbn.html'">Get Started</button>
-            <hr>
-            <div class="button-row">
-              <button onclick="window.location.href='book-isbn-import.html'">Import ISBN Transmission</button>
-              <!--<button onclick="window.location.href='book-isbn-view.html'">View All Transmitted ISBN</button>-->
-              <button onclick="window.location.href='UnderMaintenance.html'">View All Transmitted ISBN</button>
-            </div>
-        </div>
-      </div>
-      <div class="box2">
-        <div>
-            <h2>QA Processing List</h2>
-            <!--<button onclick="window.location.href='qa-processing.html'">Get Started</button>-->
-            <button onclick="window.location.href='UnderMaintenance.html'">Get Started</button>
-            <hr>
-            <!--<button onclick="window.location.href='register-user.html'">Enroll User in Station</button>-->
-            <button onclick="window.location.href='UnderMaintenance.html'">Enroll User in Station</button>
-        </div>
+  <hr>
+  <div class="project-code">
+  <label for="projectSelect">Select Project Code:</label>
+    <select id="projectSelect" class="project-list">
+      <option value="Jaguar">Jaguar</option>
+      <option value="Mustang">Mustang</option>
+      <option value="Nano">Nano</option>
+    </select>
+  </div>
+    <div>
+      <div class="info-box">
+        <h3>Project Info</h3>
+        <p>Current Project Code: <span id="currentProjectCode"></span></p>
+        <textarea id="isbn-input" rows="6" placeholder="Enter ISBNs separated by commas or new lines" style="width:95%; resize: none; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:8px;"></textarea>
+        <button id="searchBtn" type="button">Search ISBNs</button>
+        <div id="search-results" style= "text-align:left;"></div>
       </div>
     </div>
+    <div class="button-row">
+      <button onclick="window.location.href='book-isbn-import.html'">
+        Import ISBN Data
+      </button>
+      <!--<button onclick="window.location.href='book-isbn-view.html'">-->
+      <button onclick="window.location.href='UnderMaintenance2.html'">
+        View All ISBN
+      </button>
+    </div>
+  </aside>
+  <main>
+    <div class="main-header">
+      <h2>QA Processing List</h2>
+      <!--<button class="QPL-btn" onclick="window.location.href='qa-processing.html'">Assign User</button>-->
+      <button class="QPL-btn" onclick="window.location.href='UnderMaintenance3.html'">Assign User</button>
+    </div>
+    <hr>
+    <div class="qa-box-layout">
+      <div class="qa-box-row">
+        <div class="qa-box-line">
+          <div class="qa-box">R19</div>
+          <div class="qa-box">R27</div>
+          <div class="qa-box">R8</div>
+          <div class="qa-box">R19</div>
+          <div class="qa-box">R30</div>
+          <div class="qa-box">R32</div>
+        </div>
+        <div class="qa-box-line">
+          <div class="qa-box">R22</div>
+          <div class="qa-box">R23</div>
+          <div class="qa-box">R24</div>
+          <div class="qa-box">SU^2</div>
+          <div class="qa-box">SU</div>
+          <div class="qa-box">C4</div>
+        </div>
+      </div>
+      <div class="qa-box-row">
+        <div class="qa-box-line">
+          <div class="qa-box">SU^3</div>
+          <div class="qa-box">R16</div>
+          <div class="qa-box">R17</div>
+          <div class="qa-box">R18</div>
+          <div class="qa-box">R31</div>
+          <div class="qa-box">R20</div>
+          <div class="qa-box">R21</div>
+        </div>
+        <div class="qa-box-line">
+          <div class="qa-box">R9</div>
+          <div class="qa-box">R10</div>
+          <div class="qa-box">R11</div>
+          <div class="qa-box">R12</div>
+          <div class="qa-box">R13</div>
+          <div class="qa-box">R14</div>
+        </div>
+      </div>
+      <div class="qa-box-row">
+        <div class="qa-box-line">
+          <div class="qa-box">R3</div>
+          <div class="qa-box">R4</div>
+          <div class="qa-box">R5</div>
+          <div class="qa-box">R6</div>
+          <div class="qa-box">R7</div>
+          <div class="qa-box">R8</div>
+          <div class="qa-box">R34</div>
+        </div>
+        <div class="qa-box-line">
+          <div class="qa-box">R1</div>
+          <div class="qa-box">R2</div>
+          <div class="qa-box">C1</div>
+          <div class="qa-box">C2</div>
+          <div class="qa-box">C3</div>
+        </div>
+      </div>
+      <div class="qa-box-row">
+        <div class="qa-box-line">
+          <div class="qa-box">C5</div>
+          <div class="qa-box">R</div>
+          <div class="qa-box">R33</div>
+        </div>
+      </div>
+        <button style="height: 100px; background-color: #715A5A; color: #D3DAD9;" onclick="window.location.href='UnderMaintenance4.html'"><h1>Station List Generator</h1></button>
+
+      <div>
+       <!--<button onclick="window.location.href='register-user.html'">Enroll User in Station</button>-->
+      </div>
+    </div>
+  </main>
+  <script>
+    const projectSelect = document.getElementById('projectSelect');
+    const currentProjectCode = document.getElementById('currentProjectCode');
+
+    function updateProjectCode() {
+      currentProjectCode.textContent = projectSelect.value;
+    }
+
+    projectSelect.addEventListener('change', updateProjectCode);
+    updateProjectCode();
+
+    const selectElement = document.getElementById('projectSelect');
+    selectElement.addEventListener('change', function() {
+      window.location.href = 'Undermaintenance1.html';
+    });
+  </script>
 </body>
 </html>
